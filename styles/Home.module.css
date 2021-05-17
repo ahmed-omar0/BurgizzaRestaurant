@@ -1,0 +1,128 @@
+/* Start Main_Banel*/
+.main_banel{
+  background: url('/main_banel.jpg') no-repeat fixed center center;
+  background-size: cover;
+  position: relative;
+  height: 600px;
+  transform: translateY(-97px);
+}
+.main_banel .overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.301);
+}
+.main_banel h1{
+  font-size: 45px;
+  color: rgb(201 ,255 ,153);
+  font-family: 'Goblin One', cursive;
+  margin: 0;
+  text-align: center;
+  z-index: 2;
+}
+.main_banel p {
+  color: rgb(255, 255, 255);
+  font-size: 31px;
+  z-index: 2;
+}
+.main_banel .btns{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
+  margin-top: 10px;
+}
+.main_banel .btns button{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 10px 22px;
+  border-radius: 5px;
+  background: rgb(154 74 8);
+  color: rgb(255 255 255);
+  font-size: 23px;
+  margin: 0 15px;
+  transition: .4s;
+}
+.main_banel .btns button:hover{
+  background: rgb(224, 219, 219);
+  color: black;
+}
+@media only screen and (max-width: 991.99px){
+  .main_banel{
+    background-position: top left;
+  }
+}
+@media only screen and (max-width: 576.99px){
+  .main_banel h1{
+    font-size: 30px;
+  }
+  .main_banel p{
+    font-size: 23px;
+    text-align: center;
+  }
+  .main_banel .btns button{
+    padding: 10px;
+    font-size: 17px;
+    margin: 0px 5px;
+  }
+}
+/* End Main_Banel*/
+/* Start Burgizza Menu*/
+.burgizza_menu{
+  margin-bottom: 50px;
+}
+.burgizza_menu h2{
+  font-family: 'Reggae One', cursive;
+}
+.burgizza_menu .menu_items{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.burgizza_menu .menu_items .item{
+  box-shadow: 0 0 1px 0 red;
+  border-radius: 5px;
+  width: 350px;
+  height:430px;
+  text-align: center;
+  position: relative;
+  margin: 10px;
+  overflow: hidden;
+}
+.burgizza_menu .menu_items .item .image_container{
+  width: 210px;
+  height: 210px;
+  margin: auto;
+}
+.burgizza_menu .menu_items .item .image_container img{
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  border-radius: 50%;
+}
+.burgizza_menu .menu_items .item p{
+  color: rgb(23, 141, 23);
+}
+.burgizza_menu .menu_items .item .stars{
+  color: rgba(0, 128, 0, 0.877);
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+  transform: translateX(50px);
+}
+.burgizza_menu .menu_items .item span{
+  background-color: rgba(0, 128, 0, 0.918);
+  color: white;
+  font-family: 'Reggae One', cursive;
+  padding: 5px 30px;
+  transform: rotatez(311deg);
+  position: absolute;
+  top: 19px;
+  left: -32px;
+  border-radius: 5px;
+}
+/* End Burgizza Menu*/
