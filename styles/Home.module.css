@@ -1,7 +1,6 @@
 /* Start Main_Banel*/
 .main_banel{
   background: url('/main_banel.jpg') no-repeat fixed center center;
-  background-size: cover;
   position: relative;
   height: 600px;
   transform: translateY(-97px);
@@ -199,7 +198,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  width: 25%;
+  width: 400px;
   text-align: center;
   transition: .3s;
 }
@@ -238,5 +237,15 @@
   text-align: center;
   margin: 0 25px 10px;
   font-family: 'Oswald', sans-serif;
+}
+@media (min-width: 576.99px) and (max-width: 991.99px){
+  .features .cards .features_card{
+    width: 350px;
+  }
+}
+@media (max-width: 576.99px){
+  .features .cards .features_card{
+    width: 280px;
+  }
 }
 /* End Can You Trust Us*/
