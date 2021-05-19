@@ -1,8 +1,8 @@
-import Head from 'next/head'
+import Head from 'next/head';
+/* Import Components */
 import Header from '../components/home/MainBanel';
 import BurgizaaMenu from '../components/home/BurgizzaMenu';
-import { useSelector } from 'react-redux';
-import Image from 'next/image'
+import TrustUs from '../components/home/Features';
 
 export default function Home() {
   return (
@@ -12,6 +12,7 @@ export default function Home() {
       </Head>
       <Header/>
       <BurgizaaMenu/>
+      <TrustUs/>
     </>
   )
 }
@@ -21,18 +22,19 @@ export default function Home() {
       ==> Home
       ==> About
       ==> Custom Product 
-      ==> Products
+      ==> Menu
       ==> LogIn
-  
+
   ** Features
     ==> cart
     ==> make custom burger
     ==> make custom pizza
     ==> LogIn
+
   ** Tools
     ==> React & Hooks
     ==> Redux
-    ==> Next JS & TypeScript
+    ==> Next JS
     ==> Formik React
     ==> React-Icons
 */

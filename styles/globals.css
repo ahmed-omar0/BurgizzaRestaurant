@@ -1,3 +1,6 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Goblin+One&family=Oswald:wght@200;300;400;500;600&family=Reggae+One&display=swap');
+
 /*Global Rules*/
 html,
 body {
@@ -158,23 +161,40 @@ footer{
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 128, 0, 0.959);
+  background-color: rgba(102, 139, 52, .86);;
   color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
-  flex-wrap: wrap;
 }
-.loader div {
+.loader  div:nth-child(1) {
   border: 5px solid;
+  border-right-color: rgba(255, 255, 255, 0.555);
+  border-top-color: rgba(255, 255, 255, 0.555);
+  border-left-color: rgba(255, 255, 255, 0.555);
   border-radius: 50%;
-  padding: 10px 50px;
-  animation: Loader 1.3s ease-in-out 0s infinite backwards alternate;
+  padding: 70px;
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 3%);
+  animation: Loader 1s ease-in-out 0s infinite;
+}
+.loader  div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .loader div img{
   width: 120px;
   height: 120px;
   border-radius: 50%;
+}
+.loader div h2{
+  color: rgb(201 ,255 ,153);
+  text-shadow: 0 0 2px #3c5027;
+  font-family: 'Goblin One', cursive;
 }
 .loader > h2{
   width: 100%;
@@ -191,21 +211,9 @@ footer{
 }
 @keyframes Loader {
   0%{
-    border-color: transparent;
-  }
-  25%{
-    border-bottom-color: white;
-  }
-  50%{
-    border-right-color: red;
-  }
-  75%{
-    border-top-color: gray;
-    border-right-color: red;
+    transform:  translate(50%, 3%) rotateZ(0deg);
   }
   100%{
-    border-top-color: gray;
-    border-right-color: red;
-    border-left-color: black;
+    transform:  translate(50%, 3%) rotateZ(360deg);
   }
 }

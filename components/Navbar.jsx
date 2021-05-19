@@ -17,16 +17,16 @@ const Navbar = () => {
             <div className="collapse-menu" ref={menuRef}>
                 <AiFillCloseCircle onClick={toggleOpenClass}/>
                 <ul>
-                    <li>
+                    <li onClick={toggleOpenClass}>
                         <Link href="/">Home</Link>
                     </li>
-                    <li>
+                    <li onClick={toggleOpenClass}>
                         <Link href="/about">About</Link>
                     </li>
-                    <li>
-                        <Link href="/products">Products</Link>
+                    <li onClick={toggleOpenClass}>
+                        <Link href="/menu">Menu</Link>
                     </li>
-                    <li>
+                    <li onClick={toggleOpenClass}>
                         <Link href="/login">LogIn</Link>
                     </li>
                 </ul>

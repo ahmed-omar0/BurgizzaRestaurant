@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 const LayOut = (props) => {
     const pizza = useSelector(state => state.pizza);
     const burger = useSelector(state => state.burger);
-    const loading  = useSelector(state => state.loading);
     return (
         <>
             <Head>
@@ -28,13 +27,12 @@ const LayOut = (props) => {
                 <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png"/>
                 <link rel="manifest" href="favicon/manifest.json"/>
                 <meta name="msapplication-TileColor" content="#ffffff"/>
-                <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+                <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png"/>
                 <meta name="theme-color" content="#ffffff"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com"/>
-                <link href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Reggae+One&display=swap" rel="stylesheet"/>
             </Head>
             {
-                pizza.length < 0 && burger.length < 0 | loading ? <Loader/>
+                pizza.length === 0 && burger.length === 0 ?
+                <Loader/>
                 :
                 <> 
                     <Navbar/>

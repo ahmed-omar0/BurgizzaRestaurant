@@ -17,6 +17,7 @@
 .main_banel h1{
   font-size: 45px;
   color: rgb(201 ,255 ,153);
+  text-shadow: 0 0 2px #3c5027;
   font-family: 'Goblin One', cursive;
   margin: 0;
   text-align: center;
@@ -74,8 +75,11 @@
 .burgizza_menu{
   margin-bottom: 50px;
 }
-.burgizza_menu h2{
+.burgizza_menu > h2{
+  font-size: 30px;
   font-family: 'Reggae One', cursive;
+  color: rgb(21 ,138 ,21);
+  text-shadow: 0 0 2px red;
 }
 .burgizza_menu .menu_items{
   display: flex;
@@ -87,7 +91,7 @@
   box-shadow: 0 0 1px 0 red;
   border-radius: 5px;
   width: 350px;
-  height:430px;
+  height:370px;
   text-align: center;
   position: relative;
   margin: 10px;
@@ -104,15 +108,17 @@
   object-fit: scale-down;
   border-radius: 50%;
 }
+.burgizza_menu .menu_items .item h2 {
+  color: rgb(21 ,138 ,21);
+  text-shadow: 0 0 2px red;
+  font-family: 'Goblin One', cursive;
+  font-size: 17px;
+}
 .burgizza_menu .menu_items .item p{
   color: rgb(23, 141, 23);
 }
 .burgizza_menu .menu_items .item .stars{
   color: rgba(0, 128, 0, 0.877);
-  position: absolute;
-  bottom: 10px;
-  right: 50%;
-  transform: translateX(50px);
 }
 .burgizza_menu .menu_items .item span{
   background-color: rgba(0, 128, 0, 0.918);
@@ -125,4 +131,112 @@
   left: -32px;
   border-radius: 5px;
 }
+.burgizza_menu .more {
+  font-size: 18px;
+  font-family: 'Reggae One', cursive;
+  color: rgba(0, 128, 0, 0.877);
+  background-color: rgb(63 ,222 ,93);
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin:  20px 0;
+  width: 125px;
+  text-align: center;
+}
+.burgizza_menu .more svg{
+  margin-bottom: -3px;
+}
 /* End Burgizza Menu*/
+/* Start Can You Trust Us*/
+.features{
+  width: 100%;
+  background-color: rgba(63, 222, 93, .07);;
+  padding: 20px 0px 35px;
+}
+.features .header .title{
+  width: 100%;
+  text-align: center;
+  font-family: 'Reggae One', cursive;
+  color: rgb(21 ,138 ,21);
+  text-shadow: 0 0 2px red;
+  margin:0;
+}
+.features .header p {
+  font-size: 20px;
+  color: green;
+  text-align: center;
+  margin: 0 25px;
+  font-family: 'Oswald', sans-serif;
+}
+.features .header p::before {
+    content: "";
+    display: block;
+    position: relative;
+    height: 3px;
+    width: 113px;
+    background-color: rgb(249 ,197 ,106);
+    margin: 5px auto;
+}
+.features .header p::after {
+  content: "";
+  display: block;
+  position: relative;
+  height: 3px;
+  width: 113px;
+  background-color: rgb(249 ,197 ,106);
+  margin: 5px auto;
+}
+.features .cards{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  margin: 25px 0;
+}
+.features .cards .features_card{
+  box-shadow: 0 0 7px 0 #ff000082;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  width: 25%;
+  text-align: center;
+  transition: .3s;
+}
+.features .cards .features_card:hover{
+  transform: scale(1.01);
+}
+.features .cards .features_card .features_img{
+  width: 100%;
+  height: 210px;
+}
+.features .cards .features_card .features_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.features .cards .features_card .features_card_content .page_header {
+  color: rgb(21 ,138 ,21);
+  font-family: 'Goblin One', cursive;
+  font-size: 11px;
+}
+.features .cards .features_card .features_card_content .page_header::after{
+    content: "";
+    display: block;
+    position: relative;
+    height: 3px;
+    width: 113px;
+    background-color: rgb(249 ,197 ,106);
+    margin: 5px auto;
+}
+.features .cards .features_card .features_card_content p{
+  font-size: 18px;
+  color: green;
+  text-align: center;
+  margin: 0 25px 10px;
+  font-family: 'Oswald', sans-serif;
+}
+/* End Can You Trust Us*/

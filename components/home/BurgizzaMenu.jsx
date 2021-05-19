@@ -1,6 +1,8 @@
 import styles from '../../styles/Home.module.css';
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
+import {FaAngleDoubleRight} from 'react-icons/fa'
 
 const BurgizzaMenu = () => {
     const menuItems  = []
@@ -12,17 +14,17 @@ const BurgizzaMenu = () => {
             menuItems.push(
                 <div className={styles.item} key={pizza[i].id}>
                     <div className={styles.image_container}>
-                        <img src={pizza[i].image} alt={pizza[i].name}/>
+                        <Link href="/menu"><img src={pizza[i].image} alt={pizza[i].name}/></Link>
                     </div>
-                    <h2>{pizza[i].name}</h2>
+                    <h2><Link href="/menu">{pizza[i].name}</Link></h2>
                     <p>{pizza[i].ingredients}</p>
                     <div className={styles.stars}>
                         {
                             Array.from({length: 5}, (_ , index) => {
                                 return(
-                                    pizza[i].stars >= index + 1 ? <BsStarFill/> :
-                                    pizza[i].stars >= index + .5 ? <BsStarHalf/> :
-                                    <BsStar/>
+                                    pizza[i].stars >= index + 1 ? <BsStarFill key={index + 125}/> :
+                                    pizza[i].stars >= index + .5 ? <BsStarHalf key={index + 1200}/> :
+                                    <BsStar key={index + 10000}/>
                                 )
                             })
                         }
@@ -40,17 +42,17 @@ const BurgizzaMenu = () => {
             menuItems.push(
                 <div className={styles.item} key={burger[i].id}>
                     <div className={styles.image_container}>
-                        <img src={burger[i].image} alt={burger[i].name}/>
+                    <Link href="/menu"><img src={burger[i].image} alt={burger[i].name}/></Link>
                     </div>
-                    <h2>{burger[i].name}</h2>
+                    <h2><Link href="/menu">{burger[i].name}</Link></h2>
                     <p>{burger[i].description}</p>
                     <div className={styles.stars}>
                         {
                             Array.from({length: 5}, (_ , index) => {
                                 return(
-                                    burger[i].stars > index + .5 ? <BsStarFill/> :
-                                    burger[i].stars >= index + .5 ? <BsStarHalf/> :
-                                    <BsStar/>
+                                    burger[i].stars > index + .5 ? <BsStarFill key={index + 100}/> :
+                                    burger[i].stars >= index + .5 ? <BsStarHalf key={index + 500}/> :
+                                    <BsStar key={index + 1000}/>
                                 )
                             })
                         }
@@ -68,6 +70,12 @@ const BurgizzaMenu = () => {
             <div className= { styles.menu_items }>
                 {menuItems}
             </div>
+            <Link href="/menu">
+                <a className={styles.more}>
+                    More --
+                    <FaAngleDoubleRight/>
+                </a>
+            </Link>
         </section>
     );
 }
