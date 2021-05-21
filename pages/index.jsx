@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from '../components/home/MainBanel';
 import BurgizaaMenu from '../components/home/BurgizzaMenu';
 import TrustUs from '../components/home/Features';
+import Reservations from '../components/home/Reservations';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Header/>
       <BurgizaaMenu/>
       <TrustUs/>
+      <Reservations/>
     </>
   )
 }
