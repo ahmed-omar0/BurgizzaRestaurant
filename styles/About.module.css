@@ -1,0 +1,243 @@
+/* Start Header */
+.about .main_banel{
+    margin-top: 0;
+    background-color: rgb(63, 222, 93, .07);
+    padding: 90px 0 30px;
+    height: 400px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    transform: translateY(-100px);
+    background: url('/about_main_banel.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.about .main_banel .overlay{
+    position: absolute;
+    top: 0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.418);
+    z-index: 1;
+}
+.about .main_banel h1{
+    font-size: 40px;
+    color: rgb(201 ,255 ,153);
+    text-shadow: 0 0 3px 0 #3c5027;
+    font-family: 'Goblin One', cursive;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 1px;
+    width: 100%;
+}
+.about .main_banel p{
+    font-size: 21px;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    z-index: 1;
+    margin-top: 0;
+}
+@media only screen and (max-width: 576.99px){
+    .main_banel h1{
+        font-size: 30px;
+    }
+}
+/* End Header */
+/* Start Our Story*/
+.about .our_story{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.about .our_story .left_section{
+    width: 400px;
+    height: 300px;
+}
+.about .our_story .left_section img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 0 3px 0 green;
+}
+.about .our_story .right_section{
+    width: 50%;
+}
+.about .our_story .right_section h2{
+    font-size: 30px;
+    font-family: 'Reggae One', cursive;
+    color: rgb(21 ,138 ,21);
+    text-shadow: 0 0 2px red;
+    width: 150px;
+    margin-top: 0;
+}
+.about .our_story .right_section  h2::after {
+    content: "";
+    display: block;
+    position: relative;
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: rgb(249 ,197 ,106);
+    margin: 5px 0;
+    margin: 5px auto;
+    animation: under_line 1.3s linear infinite alternate;
+}
+.about .our_story .right_section p{
+    font-size: 20px;
+    color: green;
+    font-family: 'Oswald', sans-serif;
+}
+.about .our_story .right_section button{cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 10px 22px;
+    border-radius: 5px;
+    background: rgb(154, 74, 8);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    transition: .4s;
+    margin-top: 10px;
+}
+.about .our_story .right_section button:hover{
+    background: rgb(224, 219, 219);
+    color: black;
+}
+@keyframes under_line {
+    0%{
+        padding: 0 0;
+    }
+    100%{
+        padding: 0 50px;
+    }
+}
+@media (max-width: 576.99px){
+    .about .our_story{
+        width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+    .about .our_story .left_section{
+        margin: 10px auto;
+        width: 310px;
+        height: 260px;
+    }
+    .about .our_story .right_section{
+        width: 100%;
+    }
+    .about .our_story .right_section h2{
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+/* End Our Story */
+/* Start Our Team */
+.about .our_team{
+    margin: 40px auto 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(63, 222, 93, .07);
+    padding: 20px 0px 35px;
+}
+.about .our_team .header{
+    width: 100%;
+    text-align: center;
+}
+.about .our_team .header h2{
+    font-size: 30px;
+    font-family: 'Reggae One', cursive;
+    color: rgb(21 ,138 ,21);
+    text-shadow: 0 0 2px red;
+    margin: 0;
+}
+.about .our_team .header p{
+    font-size: 20px;
+    color: green;
+    font-family: 'Oswald', sans-serif;
+}
+.about .our_team .header p::before{
+    content: "";
+    display: block;
+    position: relative;
+    height: 3px;
+    width: 113px;
+    background-color: rgb(249 ,197 ,106);
+    margin: 5px auto;
+}
+.about .our_team .header p::after{
+    content: "";
+    display: block;
+    position: relative;
+    height: 3px;
+    width: 113px;
+    background-color: rgb(249 ,197 ,106);
+    margin: 5px auto;
+}
+.about .our_team .body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top:10px;
+}
+.about .our_team .body .card{
+    width: 320px;
+    box-shadow: 0  0 3px 0 green;
+    border-radius: 5px;
+    text-align: center;
+    margin: 15px auto;
+}
+.about .our_team .body .card .image_container{
+    width: 100%;
+    height: 220px;
+}
+.about .our_team .body .card .image_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about .our_team .body .card .card_body{
+    padding: 2px 5px;
+    color: rgb(21 ,138 ,21);
+}
+.about .our_team .body .card .card_body h2{
+    font-size: 20px;
+    font-family: 'Reggae One', cursive;
+    text-shadow: 0 0 2px red;
+    margin-bottom: 0;
+}
+.about .our_team .body .card .card_body h2::after{
+    content: "";
+    display: block;
+    position: relative;
+    height: 3px;
+    width: 113px;
+    padding: 0 10px;
+    background-color: rgb(249 ,197 ,106);
+    margin: 7px auto 1px;
+}
+.about .our_team .body .card .card_body p{
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 15px;
+}
+.about .our_team .body .card .card_footer{
+    background-color: rgba(178, 215, 184, 0.54);;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.about .our_team .body .card .card_footer h3{
+    margin: 5px 0 0;
+    font-family: 'Oswald', sans-serif;
+    color: green;
+    font-size: 17px;
+    font-weight: 400;
+}
+/* End Our Team */

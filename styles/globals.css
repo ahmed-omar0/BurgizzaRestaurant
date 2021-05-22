@@ -210,6 +210,126 @@ nav .menu-icons span{
     width: 50px;
   }
 }
+/* End Navbar */
+/* Start Reservations*/
+.reservations{
+  text-align: center;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reservations .header h2{
+  font-size: 30px;
+  font-family: 'Reggae One', cursive;
+  color: rgb(21 ,138 ,21);
+  text-shadow: 0 0 2px red;
+  margin-bottom: 0;
+}
+.reservations .header p {
+  font-size: 20px;
+  color: green;
+  text-align: center;
+  margin: 0 25px;
+  font-family: 'Oswald', sans-serif;
+}
+.reservations .header p::before {
+    content: "";
+    display: block;
+    position: relative;
+    height: 3px;
+    width: 113px;
+    background-color: rgb(249 ,197 ,106);
+    margin: 5px auto;
+}
+.reservations .header p::after {
+  content: "";
+  display: block;
+  position: relative;
+  height: 3px;
+  width: 113px;
+  background-color: rgb(249 ,197 ,106);
+  margin: 5px auto;
+}
+.reservations .body{
+  box-shadow: 0  0 1px 0 red;
+  border-radius: 5px;
+  padding: 30px;
+  margin: 10px 0 0;
+  width: 50%;
+}
+.reservations .body .form_control{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.reservations .body .form_control label{
+  text-align: left;
+  font-size: 20px;
+  color: green;
+  text-transform: capitalize;
+  font-family: 'Oswald', sans-serif;
+  width: 250px;
+  margin: 5px 0;
+}
+.reservations .body .form_control input{
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 19px;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 1px 0 red;
+  border-radius: 5px;
+  padding: 5px;
+}
+.reservations .body .form_control .error{
+  font-size: 14px;
+  font-family: 'Oswald', sans-serif;
+  color:green;
+  width: 100%;
+}
+.reservations .body button{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 10px 22px;
+  border-radius: 5px;
+  background: rgb(154, 74, 8);
+  color: rgb(255, 255, 255);
+  font-size: 21px;
+  margin: 10px 15px 0;
+  transition: .4s;
+  font-family: 'Oswald', sans-serif;
+}
+.reservations .body button:hover{
+  background: rgb(224, 219, 219);
+  color: black;
+}
+.reservations .footer{
+  background-color: rgba(63, 222, 93, .07);
+  width: 100%;
+  margin-top: 5px;
+  padding: 20px 5px;
+}
+.reservations .footer p{
+  font-size: 20px;
+  color: green;
+  text-align: center;
+  margin: 0 25px;
+  font-family: 'Oswald', sans-serif;
+}
+.reservations .footer p span{
+  font-weight: 600;
+}
+@media (max-width: 767.99px) {
+  .reservations .body{
+    width: 80%;
+  }
+}
+/* End Reservations*/
 
 /*Start Footer*/
 footer{
@@ -322,3 +442,4 @@ footer .footer{
     justify-content: center;
   }
 }
+/* End Footer */

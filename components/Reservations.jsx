@@ -1,4 +1,3 @@
-import styles from '../../styles/Home.module.css';
 import {useFormik} from 'formik';
 
 let initialValues = {
@@ -40,7 +39,7 @@ const validate = values => {
 
     if(!values.quests){
         errors.quests = "Required"
-    }else if(!/[0-9]/gi.test(values.quests) || parseInt(values.quests) > 20) {
+    }else if(!/[0-9]{1,2}/gi.test(values.quests) || parseInt(values.quests) > 20) {
         errors.quests = "Invalid Value. It Must Contain Only Numbers And It Can't Be More Than 20"
     }
 
@@ -61,13 +60,13 @@ const Reservations = () => {
         validate
     })
     return (
-        <section className={styles.reservations}>
-            <div className={styles.header}>
+        <section className="reservations">
+            <div className="header">
                 <h2>Reservations</h2>
                 <p>Book a table online. Leads will reach in your email</p>
             </div>
-            <form name="reservations" className={styles.body} onSubmit={formik.handleSubmit}>
-                <div className={styles.form_control}>
+            <form name="reservations" className="body" onSubmit={formik.handleSubmit}>
+                <div className="form_control">
                     <label htmlFor="name">Name</label>
                     <input
                         type="text" 
@@ -80,11 +79,11 @@ const Reservations = () => {
                     {
                         formik.touched.name && formik.errors.name ? 
                         (
-                            <div className={styles.error}>{formik.errors.name}</div>
+                            <div className="error">{formik.errors.name}</div>
                         ) : null
                     }
                 </div>
-                <div className={styles.form_control}>
+                <div className="form_control">
                     <label htmlFor="date">date</label>
                     <input
                         type="text" 
@@ -98,11 +97,11 @@ const Reservations = () => {
                     {
                         formik.touched.date && formik.errors.date ? 
                         (
-                            <div className={styles.error}>{formik.errors.date}</div>
+                            <div className="error">{formik.errors.date}</div>
                         ) : null
                     }
                 </div>
-                <div className={styles.form_control}>
+                <div className="form_control">
                     <label htmlFor="time">time</label>
                     <input
                         type="text" 
@@ -116,11 +115,11 @@ const Reservations = () => {
                     {
                         formik.touched.time && formik.errors.time ? 
                         (
-                            <div className={styles.error}>{formik.errors.time}</div>
+                            <div className="error">{formik.errors.time}</div>
                         ) : null
                     }
                 </div>
-                <div className={styles.form_control}>
+                <div className="form_control">
                     <label htmlFor="email">email</label>
                     <input
                         type="email" 
@@ -133,11 +132,11 @@ const Reservations = () => {
                     {
                         formik.touched.email && formik.errors.email ? 
                         (
-                            <div className={styles.error}>{formik.errors.email}</div>
+                            <div className="error">{formik.errors.email}</div>
                         ) : null
                     }
                 </div>
-                <div className={styles.form_control}>
+                <div className="form_control">
                     <label htmlFor="quests">num of quests</label>
                     <input
                         type="text" 
@@ -150,11 +149,11 @@ const Reservations = () => {
                     {
                         formik.touched.quests && formik.errors.quests ? 
                         (
-                            <div className={styles.error}>{formik.errors.quests}</div>
+                            <div className="error">{formik.errors.quests}</div>
                         ) : null
                     }
                 </div>
-                <div className={styles.form_control}>
+                <div className="form_control">
                     <label htmlFor="phone">phone</label>
                     <input
                         type="text" 
@@ -168,13 +167,13 @@ const Reservations = () => {
                     {
                         formik.touched.phone && formik.errors.phone ? 
                         (
-                            <div className={styles.error}>{formik.errors.phone}</div>
+                            <div className="error">{formik.errors.phone}</div>
                         ) : null
                     }
                 </div>
                 <button type="submit">Make Reservation</button>
             </form>
-            <div className={styles.footer}>
+            <div className="footer">
                 <p>
                     You can also call: <span>+20 1018360530</span> to make a reservation.
                 </p>
