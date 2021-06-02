@@ -37,6 +37,36 @@ p{
   align-items: center;
   width: 100vw;
 }
+/* Start Not Found Page */
+.not_found{
+  text-align: center;
+  color: green;
+  transform: translateY(-50px);
+  font-family: 'Oswald', sans-serif;
+  
+}
+.not_found svg{
+  font-size: 90px;
+}
+.not_found .home_btn{
+  border: none;
+  outline: none;
+  border: 1px solid rgba(0, 128, 0, 0.726);
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+  background-color: white;
+  color: green;
+  padding: 2px 20px;
+  margin: 10px 0px;
+  transition: .4s;
+}
+.not_found .home_btn:hover{
+  color: rgb(255, 255, 255);
+  background: rgba(0, 128, 0, .8);
+  border: 1px solid rgba(0, 128, 0, 0.726);
+}
+/* End Not Found Page */
 /* Start Scroll Up */
 .scroll-up{
   position: fixed;
@@ -114,6 +144,7 @@ p{
     transform:  translate(50%, 3%) rotateZ(360deg);
   }
 }
+/* End Loader */
 /*Start navbar*/
 nav{
   background-color: transparent;
