@@ -149,7 +149,7 @@
 .checkout_table.empty_table {
     text-align: center;
 }
-.checkout_table.empty_table svg{
+.checkout_table.empty_table .empty_table svg{
     font-size: 70px;
 }
 .checkout_table .our_menu{
