@@ -88,12 +88,12 @@ const Cart = ({toggleCart , cartRef}) => {
                 <div className="cart-footer">
                     <span>{`Total Price: ${totalPrice}$`}</span>
                     <Link href='/checkout'>
-                        <a className="check-out">Check Out</a>
+                        <a className="check-out" onClick={toggleCart}>Check Out</a>
                     </Link> 
                 </div>
                 :
                 <Link href='/menu'>
-                    <a className="our-menu">Our Menu</a>
+                    <a className="our-menu" onClick={toggleCart}>Our Menu</a>
                 </Link> 
             }
         </div>

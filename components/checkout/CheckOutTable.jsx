@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from '../../styles/Checkout.module.css';
 // Import Icons
 import { FaTrashRestore } from 'react-icons/fa';
-import { BiCommentError } from 'react-icons/bi';
+import { CgBmw } from 'react-icons/cg';
 // Redux & Actions
 import { useDispatch, useSelector } from 'react-redux';
 import { removeBurgerFromCart } from '../../redux/burger/burgerActions';
@@ -39,7 +39,7 @@ const CheckOutTable = () => {
                         <h4>{burgerCart[i].quantity * burgerCart[i].price}$</h4>
                     </td>
                     <td>
-                        <FaTrashRestore className={styles.delete} onClick={() => dispatch(removePizzaFromCart(burgerCart[i]))}/>
+                        <FaTrashRestore className={styles.delete} onClick={() => dispatch(removeBurgerFromCart(burgerCart[i]))}/>
                     </td>
                 </tr>
             )
@@ -82,7 +82,7 @@ const CheckOutTable = () => {
         }) : null
 
     return (
-        <div className={styles.checkout_table}>
+        <div className={`${styles.checkout_table} ${styles.empty_table}`}>
             {
                 burger.length || pizza.length ?
                 <table className={styles.list_of_items}>
@@ -119,13 +119,11 @@ const CheckOutTable = () => {
                     </tfoot>
                 </table>
                 :
-                <ul className={styles.list_of_items}>
-                    <li className={styles.empty_cart}>
-                        <BiCommentError/>
-                        <h2>Cart Is Empty</h2>
+                <div className={styles.empty_table}>
+                        <CgBmw/>
+                        <h2>You Didn't Choose Anything Yet.</h2>
                         <p>Choose Some Products</p>
-                    </li>
-                </ul>
+                </div>
             }
             {
                 burger.length || pizza.length ?

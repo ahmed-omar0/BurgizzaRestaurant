@@ -145,3 +145,30 @@
     }
 }
 /* End Checkout Table */
+/* Start Checkout Empty */
+.checkout_table.empty_table {
+    text-align: center;
+}
+.checkout_table.empty_table svg{
+    font-size: 70px;
+}
+.checkout_table .our_menu{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border: 1px solid rgba(0, 128, 0, 0.726);
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    background-color: white;
+    color: green;
+    padding: 2px 20px;
+    margin: 10px 0px;
+    transition: .4s;
+}
+.checkout_table .our_menu:hover{
+    color: rgb(255, 255, 255);
+    background: rgba(0, 128, 0, .8);
+    border: 1px solid rgba(0, 128, 0, 0.726);
+}
+/* End Checkout Empty */
