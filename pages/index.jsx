@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Header from '../components/home/MainBanel';
 import BurgizaaMenu from '../components/home/BurgizzaMenu';
 import TrustUs from '../components/home/Features';
-import Reservations from '../components/Reservations';
+import Reservations from '../components/Common/Reservations';
 
 export default function Home() {
   return (

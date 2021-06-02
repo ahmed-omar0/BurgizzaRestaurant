@@ -10,14 +10,20 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   overflow-x: hidden;
 }
-
+* {
+  box-sizing: border-box;
+}
 a {
   color: inherit;
   text-decoration: none;
 }
-
-* {
-  box-sizing: border-box;
+table, th, td {
+  border: 1px solid rgba(0, 128, 0, 0.8);
+  border-collapse: collapse;
+  text-align: center;
+}
+th, td {
+  padding: 10px;
 }
 p{
   font-family: 'Oswald', sans-serif;
@@ -31,7 +37,20 @@ p{
   align-items: center;
   width: 100vw;
 }
-/*Start Loader*/
+/* Start Scroll Up */
+.scroll-up{
+  position: fixed;
+  right: 30px;
+  bottom: 70px;
+  cursor: pointer;
+  z-index: 10;
+}
+.scroll-up svg{
+  color: green;
+  font-size: 45px;
+}
+/* End Scroll Up */
+/* Start Loader */
 .loader{
   z-index: 5;
   position: absolute;
@@ -130,12 +149,161 @@ nav .collapse-menu ul li{
   cursor: pointer;
   font-family: 'Reggae One', cursive;
   transition: .4s;
+  position: relative;
 }
 nav .collapse-menu ul li:hover{
   color: rgb(201 ,255 ,153);
 }
+nav .collapse-menu ul li svg{
+  display: block;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 24px;
+  z-index: 2;
+  font-family: 'Reggae One', cursive;
+  transition: .4s;
+  margin: 4px -23px 0 45px;
+}
+nav .collapse-menu ul li.cart-icon span{
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  font-size: 13px;
+  background: rgb(201 255 153);
+  padding: 1px 7px;
+  color: rgb(0, 128, 0);
+  font-family: 'Oswald';
+  font-weight: 500;
+  border-radius: 50%;
+}
+nav .collapse-menu ul li svg:hover{
+  color: rgb(201 ,255 ,153);
+}
 nav .collapse-menu svg{
   display: none;
+}
+nav .cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(700px);
+  transition: .5s;
+  background-color: rgba(154, 74 ,8 , .7);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+nav .cart.open {
+  transform: translateX(0px);
+}
+nav .cart ul{
+  width: 100%;
+  margin: 0 0 10px;
+  list-style-type: none;
+  padding: 0;
+}
+nav .cart svg{
+  cursor: pointer;
+  font-size: 30px;
+  color: rgb(255 ,255 ,255);
+  margin-left: 80%;
+  margin-top: 20px;
+  display: block;
+}
+nav  .cart ul {
+  margin-top: 10px;
+}
+nav  .cart ul li{
+  border-bottom: 1px solid;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  color:rgb(255, 255, 255);
+  font-family: 'Oswald', sans-serif;
+}
+nav .cart ul li.empty-cart{
+  display: block;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+nav .cart ul li.empty-cart svg{
+  margin: 5px auto;
+}
+nav  .cart ul li .image-container{
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+nav  .cart ul li .image-container img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+nav  .cart ul li .image-container span{
+  position: absolute;
+  top: -6px;
+  left: -7px;
+  background: rgb(201 ,255 ,153);
+  color: rgb(0, 128, 0);
+  font-size: 16px;
+  padding: 0px 8px;
+  border-radius: 50%;
+}
+nav .cart ul li .item-details{
+  margin-top: 12px;
+  margin-left: 10px;
+  width: 200px;
+}
+nav .cart ul li .item-details h3 ,nav .cart ul li .item-details h4{
+  margin: 0;
+}
+nav .cart ul li .item-details h5{
+  display: inline-block;
+}
+nav .cart ul li .item-details svg{
+  display: inline-block;
+  font-size: 16px !important;
+  margin: 0 15px 0;
+}
+nav .cart ul li .item-details .delete{
+  color: rgb(255, 255, 255);
+  font-size: 21px;
+}
+nav .cart .cart-footer{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+nav .cart .cart-footer span{ 
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+  margin: 10px auto 20px;
+  display: block;
+}
+nav .cart .check-out, nav .cart .our-menu{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgb(154, 74, 8);
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  margin: 10px 0px;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  transition: .4s;
+  margin: auto;
+}
+nav .cart .check-out:hover, nav .cart .our-menu:hover{
+  color: black;
+  background: white;
 }
 nav .menu-icons {
   position: absolute;
@@ -152,8 +320,10 @@ nav .menu-icons span{
   background: rgb(201 ,255 ,153);
   border-radius: 10px;
 }
-/*Start Navbat Media*/
-@media only screen and (max-width: 991.99px){
+@media (min-width: 768px) and (max-width: 991.99px){
+  nav{
+    justify-content: center;
+  }
   nav .collapse-menu{
     width: 0;
     height: 100vh;
@@ -174,6 +344,9 @@ nav .menu-icons span{
     margin-top: 20px;
     display: block;
   }
+  nav .collapse-menu svg:nth-child(2){
+    margin: 10px auto 0;
+  }
   nav .collapse-menu ul{
     display: block;
     text-align: center;
@@ -186,13 +359,90 @@ nav .menu-icons span{
     opacity: 0;
     visibility: hidden;
   }
+  nav .cart-icon{
+    position: relative;
+    margin-left: 40px;
+    cursor: pointer;
+  }
+  nav .cart-icon svg{
+    color: rgb(201 ,255 ,153);
+    font-size: 25px;
+  }
+  nav .cart-icon span{
+    position: absolute;
+    top: -3px;
+    left: -6px;
+    font-size: 10px;
+    background: rgb(201 255 153);
+    padding: 1px 7px;
+    color: rgb(0, 128, 0);
+    font-family: 'Oswald';
+    font-weight: 500;
+    border-radius: 50%;
+  }
 }
 @media only screen and (max-width: 767.99px){
-  nav {
+  nav{
     justify-content: flex-start;
   }
   nav .logo {
     margin-left: 20px;
+  }
+  nav .collapse-menu{
+    width: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(154, 74 ,8 , .7);
+    transition: .5s;
+    position: absolute;
+    top:0;
+    right: 0;
+  }
+  nav .collapse-menu.open{
+    width: 100vw;
+  }
+  nav .collapse-menu svg{
+    font-size: 30px;
+    color: rgb(255 ,255 ,255);
+    margin-left: 80%;
+    margin-top: 20px;
+    display: block;
+  }
+  nav .collapse-menu svg:nth-child(2){
+    margin: 10px auto 0;
+  }
+  nav .collapse-menu ul{
+    display: block;
+    text-align: center;
+  }
+  nav .menu-icons {
+    display: block;
+    transition: .3s;
+  }
+  nav .menu-icons.open {
+    opacity: 0;
+    visibility: hidden;
+  }
+  nav .cart-icon{
+    position: relative;
+    margin-left: 40px;
+    cursor: pointer;
+  }
+  nav .cart-icon svg{
+    color: rgb(201 ,255 ,153);
+    font-size: 23px;
+  }
+  nav .cart-icon span{
+    position: absolute;
+    top: -3px;
+    left: -6px;
+    font-size: 10px;
+    background: rgb(201 255 153);
+    padding: 1px 7px;
+    color: rgb(0, 128, 0);
+    font-family: 'Oswald';
+    font-weight: 500;
+    border-radius: 50%;
   }
 }
 @media only screen and (max-width: 576.99px){
@@ -211,6 +461,51 @@ nav .menu-icons span{
   }
 }
 /* End Navbar */
+/* Start Main Banel */
+.main_banel{
+  margin-top: 0;
+  background-color: rgb(63, 222, 93, .07);
+  padding: 90px 0 30px;
+  min-height: 400px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  transform: translateY(-100px);
+  position: relative;
+}
+.main_banel .overlay{
+  position: absolute;
+  top: 0;
+  bottom:0;
+  right:0;
+  left:0;
+  background-color: rgba(0, 0, 0, 0.418);
+  z-index: 1;
+}
+.main_banel h1{
+  width: 100%;
+  font-size: 50px;
+  font-family: 'Goblin One', cursive;
+  color: rgb(201 ,255 ,153);
+  text-shadow: 0 0 3px  #3c5027;
+  z-index: 1;
+  margin-bottom: 1px;
+}
+.main_banel p{
+  font-size: 25px;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  z-index: 1;
+  margin-top: 0;
+}
+@media only screen and (max-width: 576.99px){
+  .main_banel h1{
+      font-size: 30px;
+  }
+}
+/* End Main Banel */
 /* Start Reservations*/
 .reservations{
   text-align: center;

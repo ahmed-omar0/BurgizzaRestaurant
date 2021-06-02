@@ -1,24 +1,19 @@
-import styles from '../../styles/Home.module.css';
+import styles from '../../styles/Menu.module.css';
 import Link from 'next/link';
-// Import Icons
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
-import {FaAngleDoubleRight} from 'react-icons/fa'
 // Redux & Actions
 import { useDispatch, useSelector } from 'react-redux';
-import { addBurgerToCart, removeBurgerFromCart } from '../../redux/burger/burgerActions';
-import { addPizzaToCart, removePizzaFromCart } from '../../redux/pizza/pizzaActions';
-
-
+import { addPizzaToCart } from '../../redux/pizza/pizzaActions';
+import { addBurgerToCart } from '../../redux/burger/burgerActions';
 
 const BurgizzaMenu = () => {
     const menuItems  = []
     const pizza = useSelector(state => state.Pizza.pizza)
     const burger = useSelector(state => state.Burger.burger)
-    const dispatch = useDispatch();
-
+    const dispatch = useDispatch()
     // Loop Pizza
     if (pizza.length > 0) {
-        for (let i = 0; i < 2; i++){
+        for (let i = 0; i < pizza.length; i++){
             menuItems.push(
                 <div className={styles.item} key={pizza[i].id}>
                     <div className={styles.image_container}>
@@ -47,7 +42,7 @@ const BurgizzaMenu = () => {
     }   
      // Loop Burger
     if (burger.length > 0) {
-        for (let i = 0; i < 2; i++){
+        for (let i = 0; i < burger.length; i++){
             menuItems.push(
                 <div className={styles.item} key={burger[i].id}>
                     <div className={styles.image_container}>
@@ -80,12 +75,6 @@ const BurgizzaMenu = () => {
             <div className= { styles.menu_items }>
                 {menuItems}
             </div>
-            <Link href="/menu">
-                <a className={styles.more}>
-                    More --
-                    <FaAngleDoubleRight/>
-                </a>
-            </Link>
         </section>
     );
 }

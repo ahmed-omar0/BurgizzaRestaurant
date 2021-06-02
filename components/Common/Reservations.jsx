@@ -1,4 +1,5 @@
 import {useFormik} from 'formik';
+import * as Yup from 'yup';
 
 let initialValues = {
     name: '',
@@ -8,56 +9,21 @@ let initialValues = {
     questes: '',
     phone: ''
 }
-const validate = values => {
-    let errors = {}
-
-    if(!values.name){
-        errors.name = "Required"
-    }else if(!/[A-z]/gi.test(values.name)){
-        errors.name = "Invalid Value. It Can Contain Only Characters"
-    }
-
-    if(!values.date){
-        errors.date = "Required"
-    }else if(!/[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/gi.test(values.date)){
-        errors.date = "Ivalid Value. It should look like 2021/12/20"
-    }
-
-    if(!values.time){
-        errors.time = "Required"
-    }else if(!/[0-9:]{5}/i.test(values.time) 
-            || values.time.length > 5  
-            || !(values.time.indexOf(':') === 2)){
-        errors.time = "Invalid Value. It Should Look Like 01:20"
-    }
-
-    if(!values.email){
-        errors.email = "Required"
-    }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)){
-        errors.email = "Invalid Value"
-    }
-
-    if(!values.quests){
-        errors.quests = "Required"
-    }else if(!/[0-9]{1,2}/gi.test(values.quests) || parseInt(values.quests) > 20) {
-        errors.quests = "Invalid Value. It Must Contain Only Numbers And It Can't Be More Than 20"
-    }
-
-    if(!values.phone){
-        errors.phone = "Required"
-    }else if (!/[0-9]{11}/gi.test(values.phone) || values.phone.length > 11){
-        errors.phone = "Invalid Value. It Must Contain Only Numbers And length Is 11"
-    }
-    return errors
-}
-
+const validate = Yup.object({
+    name: Yup.string().matches(/[A-z]/gi, 'Invalid Value. It Can Contain Only Characters').required('Name Is Required'),
+    date: Yup.string().matches(/[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/gi, "Ivalid Value. It should look like 2021/01/02").required('Date Is Required'),
+    time: Yup.string().matches(/[0-9]{2}:[0-9]{2}/i, 'Invalid Value. It Should Look Like 01:20').required('Time Is Required'),
+    email: Yup.string().email('Email Is Invalid').required('Email Is Required'),
+    quests: Yup.number().max(20, "It Can't Be More Than 20").min(1, "It Can't Be Less Than 1").required('Num of Quests Is Required'),
+    phone:  Yup.string().max(11, "Invalid Value, It's More Than 11 Number").matches(/[0-9]{11}\[^a-Z]/gi, 'It Can Contain Only Numbers').required('Phone Is Required')
+})
 const Reservations = () => {
     const formik = useFormik({
         initialValues,
         onSubmit: values => {
             console.log('Your' + " " + values)
         },
-        validate
+        validationSchema: validate
     })
     return (
         <section className="reservations">
@@ -139,7 +105,7 @@ const Reservations = () => {
                 <div className="form_control">
                     <label htmlFor="quests">num of quests</label>
                     <input
-                        type="text" 
+                        type="number" 
                         id="quests"
                         name="quests"
                         onChange={formik.handleChange}

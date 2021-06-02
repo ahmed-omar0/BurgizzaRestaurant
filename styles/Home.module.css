@@ -93,7 +93,7 @@
   box-shadow: 0 0 3px 0 green;
   border-radius: 5px;
   width: 340px;
-  height:370px;
+  height:410px;
   text-align: center;
   position: relative;
   margin: 10px;
@@ -132,6 +132,22 @@
   top: 19px;
   left: -32px;
   border-radius: 5px;
+}
+.burgizza_menu .menu_items .item button{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgb(154, 74, 8);
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  margin: 10px 0px;
+  transition: .4s;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .burgizza_menu .more {
   font-size: 18px;

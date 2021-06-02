@@ -9,15 +9,16 @@ import storage from 'redux-persist/lib/storage';
 // axios
 import axios from 'axios';
 // Reducer & Actions
-import { reducer } from './reducer';
-import { fetchBurgerSuccess, fetchPizzaSuccess , fetchFailed} from './actions';
+import { rootReducer } from './rootReducer';
+import { fetchPizzaSuccess , fetchPizzaFailed } from './pizza/pizzaActions';
+import { fetchBurgerSuccess, fetchBurgerFailed } from './burger/burgerActions';
 
 const persistorConfig = {
     key: 'root',
     storage,
-    whitelist: ['cart' , 'id'],
+    whiteList: ['pizzaCart', 'burgerCart'],
 }
-const persistedReducer = persistReducer(persistorConfig , reducer);
+const persistedReducer = persistReducer(persistorConfig , rootReducer);
 export const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk),));
 export const persistor = persistStore(store);
 
@@ -28,7 +29,7 @@ function fetchPizzaData () {
             const pizza = res.data
             dispatch(fetchPizzaSuccess(pizza))
         })
-        .catch(err => dispatch(fetchFailed(err)))
+        .catch(err => dispatch(fetchPizzaFailed(err)))
     }
 }
 function fetchBurgerData () {
@@ -38,7 +39,7 @@ function fetchBurgerData () {
             const burger = res.data
             dispatch(fetchBurgerSuccess(burger))
         })
-        .catch(err => dispatch(fetchFailed(err)))
+        .catch(err => dispatch(fetchBurgerFailed(err)))
     }
 }
 store.dispatch(fetchPizzaData());

@@ -1,12 +1,13 @@
 import Head from 'next/head'
-import Navbar from './Navbar';
-import Footer from './Footer';
-import Loader from './Loader';
+import Navbar from './Common/Navbar';
+import Footer from './Common/Footer';
+import Loader from './Common/Loader';
 import { useSelector } from 'react-redux';
+import ScrollUp from './Common/ScrollUp'
 
 const LayOut = (props) => {
-    const pizza = useSelector(state => state.pizza);
-    const burger = useSelector(state => state.burger);
+    const pizza = useSelector(state => state.Pizza.pizza);
+    const burger = useSelector(state => state.Burger.burger);
     return (
         <>
             <Head>
@@ -37,6 +38,7 @@ const LayOut = (props) => {
                 <> 
                     <Navbar/>
                     {props.children}
+                    <ScrollUp/>
                     <Footer/>
                 </>
             }

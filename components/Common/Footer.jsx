@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import {FaAngleDoubleRight, FaGooglePlus, FaYoutube, FaLinkedin, FaPhoneAlt, FaHeart} from 'react-icons/fa';
-import {SiFacebook , SiTwitter} from 'react-icons/si';
-import {FiMail} from 'react-icons/fi';
-import {MdLocationOn} from 'react-icons/md';
-
+// Import Icons
+import { FaAngleDoubleRight, FaGooglePlus, FaYoutube, FaLinkedin, FaPhoneAlt, FaHeart } from 'react-icons/fa';
+import { SiFacebook , SiTwitter } from 'react-icons/si';
+import { FiMail } from 'react-icons/fi';
+import { MdLocationOn } from 'react-icons/md';
 
 const Footer = () => {
     return (
