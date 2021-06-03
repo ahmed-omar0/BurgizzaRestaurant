@@ -6,13 +6,13 @@ const MainBanel = () => {
         <section className={ " container " + styles.main_banel}>
             <div className={styles.overlay}></div>
             <h1>Welcome To Burgizza</h1>
-            <p>Make Your Special Burger and Pizza</p>
+            <p>The Best Burger and Pizza You Will Ever Eat</p>
             <div className={styles.btns}>
                 <button>
-                    <Link href='/customburger'>Custom Burger</Link>
+                    <Link href='/about'>About Us</Link>
                 </button>
                 <button>
-                    <Link href='/custompizza'>Custom Pizza</Link>
+                    <Link href='/menu'>Our Menu</Link>
                 </button>
             </div>
         </section>
