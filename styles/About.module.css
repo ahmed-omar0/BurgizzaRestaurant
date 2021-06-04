@@ -66,6 +66,12 @@
         padding: 0 50px;
     }
 }
+@media screen and (max-width: 767.99px) {
+    .about .our_story .right_section h2{
+        width: 100%;
+        margin-top: 10px;
+    }
+}
 @media (max-width: 576.99px){
     .about .our_story{
         width: 90%;
@@ -79,10 +85,6 @@
     }
     .about .our_story .right_section{
         width: 100%;
-    }
-    .about .our_story .right_section h2{
-        width: 100%;
-        margin-top: 10px;
     }
 }
 /* End Our Story */

@@ -10,7 +10,7 @@ let initialValues = {
     phone: ''
 }
 const validate = Yup.object({
-    name: Yup.string().matches(/[A-z]/gi, 'Invalid Value. It Can Contain Only Characters').required('Name Is Required'),
+    name: Yup.string().matches(/[^0-9][A-z]/gi, 'Invalid Value. It Can Contain Only Characters').required('Name Is Required'),
     date: Yup.string().matches(/[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/gi, "Ivalid Value. It should look like 2021/01/02").required('Date Is Required'),
     time: Yup.string().matches(/[0-9]{2}:[0-9]{2}/i, 'Invalid Value. It Should Look Like 01:20').required('Time Is Required'),
     email: Yup.string().email('Email Is Invalid').required('Email Is Required'),
@@ -38,9 +38,7 @@ const Reservations = () => {
                         type="text" 
                         id="name"
                         name="name"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.name}
+                        {...formik.getFieldProps('name')}
                         />
                     {
                         formik.touched.name && formik.errors.name ? 
@@ -55,9 +53,7 @@ const Reservations = () => {
                         type="text" 
                         id="date"
                         name="date"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.date}
+                        {...formik.getFieldProps('date')}
                         placeholder="YY/MM/DD"
                         />
                     {
@@ -73,9 +69,7 @@ const Reservations = () => {
                         type="text" 
                         id="time"
                         name="time"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.time}
+                        {...formik.getFieldProps('time')}
                         placeholder="00:00"
                         />
                     {
@@ -91,9 +85,7 @@ const Reservations = () => {
                         type="email" 
                         id="email"
                         name="email"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.email}
+                        {...formik.getFieldProps('email')}
                         />
                     {
                         formik.touched.email && formik.errors.email ? 
@@ -108,9 +100,7 @@ const Reservations = () => {
                         type="number" 
                         id="quests"
                         name="quests"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.quests}
+                        {...formik.getFieldProps('quests')}
                         />
                     {
                         formik.touched.quests && formik.errors.quests ? 
@@ -125,9 +115,7 @@ const Reservations = () => {
                         type="text" 
                         id="phone"
                         name="phone"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.phone}
+                        {...formik.getFieldProps('phone')}
                         placeholder="01018******"
                         />
                     {

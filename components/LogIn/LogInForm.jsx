@@ -8,7 +8,7 @@ let initialValues = {
     password: ''
 }
 const validate = Yup.object({
-    name: Yup.string().matches(/[A-z]/mgi, "It Can Only Be Letters").required('Name Is Required'),
+    name: Yup.string().matches(/[^0-9]\[A-z]/gi, 'Invalid Value. It Can Contain Only Characters').required('Name Is Required'),
     email: Yup.string().email('Email Is Invalid').required('Email Is Required'),
     password: Yup.string().required('Password Is Required')
 })
@@ -33,9 +33,7 @@ const LogInForm = () => {
                         type="text" 
                         id="name"
                         name="name"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.name}
+                        {...formik.getFieldProps('name')}
                         />
                     {
                         formik.touched.name && formik.errors.name ? 
@@ -50,9 +48,7 @@ const LogInForm = () => {
                         type="email" 
                         id="email"
                         name="email"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.email}
+                        {...formik.getFieldProps('email')}
                         />
                     {
                         formik.touched.email && formik.errors.email ? 
@@ -67,9 +63,7 @@ const LogInForm = () => {
                         type="text" 
                         id="password"
                         name="password"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.password}
+                        {...formik.getFieldProps('password')}
                         placeholder="Your Password"
                         />
                     {

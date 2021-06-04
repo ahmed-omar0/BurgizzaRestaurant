@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from "../../styles/About.module.css";
 
 const OurStory = () => {
@@ -16,7 +17,11 @@ const OurStory = () => {
                     remaining essentially unchanged. 
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage
                 </p>
-                <button type="button">Our Menu</button>
+                <button type="button">
+                    <Link href="/menu">
+                        Our Menu
+                    </Link>
+                </button>
             </div>
         </section>
     );

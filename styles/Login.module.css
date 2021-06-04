@@ -97,7 +97,8 @@
 }
 @media (max-width: 767.99px) {
     .log_in .log_in_form .body{
-        width: 80%;
+        width: 95%;
+        padding: 30px 10px;
     }
 }
 /* End Log In Form*/

@@ -55,16 +55,21 @@
 @media only screen and (max-width: 991.99px){
   .main_banel{
     background-position: top left;
-    background: cover;
+    background-attachment: inherit;
   }
 }
 @media only screen and (max-width: 576.99px){
+  .main_banel {
+    height: 400px;
+  }
   .main_banel h1{
     font-size: 30px;
+    margin-top: 30px;
   }
   .main_banel p{
     font-size: 23px;
     text-align: center;
+    word-break: break-word;
   }
   .main_banel .btns button{
     padding: 10px;
