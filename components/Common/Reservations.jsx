@@ -1,4 +1,4 @@
-import {useFormik} from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 let initialValues = {
@@ -15,124 +15,89 @@ const validate = Yup.object({
     time: Yup.string().matches(/[0-9]{2}:[0-9]{2}/i, 'Invalid Value. It Should Look Like 01:20').required('Time Is Required'),
     email: Yup.string().email('Email Is Invalid').required('Email Is Required'),
     quests: Yup.number().max(20, "It Can't Be More Than 20").min(1, "It Can't Be Less Than 1").required('Num of Quests Is Required'),
-    phone:  Yup.string().max(11, "Invalid Value, It's More Than 11 Number").matches(/[0-9]{11}\[^a-Z]/gi, 'It Can Contain Only Numbers').required('Phone Is Required')
+    phone:  Yup.string().max(11, "Invalid Value, It's More Than 11 Number").min(11, "Invalid Value, It's Lower Than 11 Number").matches(/[0-9]{11}\[^a-Z]/gi, 'It Can Contain Only Numbers').required('Phone Is Required')
 })
+const onSubmit = values => {
+    console.log('Your' + " " + values)
+}
 const Reservations = () => {
-    const formik = useFormik({
-        initialValues,
-        onSubmit: values => {
-            console.log('Your' + " " + values)
-        },
-        validationSchema: validate
-    })
     return (
-        <section className="reservations">
-            <div className="header">
-                <h2>Reservations</h2>
-                <p>Book a table online. Leads will reach in your email</p>
-            </div>
-            <form name="reservations" className="body" onSubmit={formik.handleSubmit}>
-                <div className="form_control">
-                    <label htmlFor="name">Name</label>
-                    <input
-                        type="text" 
-                        id="name"
-                        name="name"
-                        {...formik.getFieldProps('name')}
-                        />
-                    {
-                        formik.touched.name && formik.errors.name ? 
-                        (
-                            <div className="error">{formik.errors.name}</div>
-                        ) : null
-                    }
+        <Formik
+            initialValues={initialValues}
+            validationSchema={validate}
+            onSubmit={onSubmit}>
+            <section className="reservations">
+                <div className="header">
+                    <h2>Reservations</h2>
+                    <p>Book a table online. Leads will reach in your email</p>
                 </div>
-                <div className="form_control">
-                    <label htmlFor="date">date</label>
-                    <input
-                        type="text" 
-                        id="date"
-                        name="date"
-                        {...formik.getFieldProps('date')}
-                        placeholder="YY/MM/DD"
-                        />
-                    {
-                        formik.touched.date && formik.errors.date ? 
-                        (
-                            <div className="error">{formik.errors.date}</div>
-                        ) : null
-                    }
+                <Form name="reservations" className="body">
+                    <div className="form_control">
+                        <label htmlFor="name">Name</label>
+                        <Field
+                            type="text" 
+                            id="name"
+                            name="name"
+                            />
+                        <ErrorMessage component="div" className="error" name="name"/>
+                    </div>
+                    <div className="form_control">
+                        <label htmlFor="date">date</label>
+                        <Field
+                            type="text" 
+                            id="date"
+                            name="date"
+                            placeholder="YY/MM/DD"
+                            />
+                        <ErrorMessage component="div" className="error" name="date"/>
+                    </div>
+                    <div className="form_control">
+                        <label htmlFor="time">time</label>
+                        <Field
+                            type="text" 
+                            id="time"
+                            name="time"
+                            placeholder="00:00"
+                            />
+                        <ErrorMessage component="div" className="error" name="time"/>
+                    </div>
+                    <div className="form_control">
+                        <label htmlFor="email">email</label>
+                        <Field
+                            type="email" 
+                            id="email"
+                            name="email"
+                            />
+                        <ErrorMessage component="div" className="error" name="email"/>
+                    </div>
+                    <div className="form_control">
+                        <label htmlFor="quests">num of quests</label>
+                        <Field
+                            type="number" 
+                            id="quests"
+                            name="quests"
+                            />
+                        <ErrorMessage component="div" className="error" name="quests"/>
+                    </div>
+                    <div className="form_control">
+                        <label htmlFor="phone">phone</label>
+                        <Field
+                            type="text" 
+                            id="phone"
+                            name="phone"
+                            placeholder="01018******"
+                            />
+                        <ErrorMessage component="div" className="error" name="phone"/>
+                    </div>
+                    <button type="submit">Make Reservation</button>
+                </Form>
+                <div className="footer">
+                    <p>
+                        You can also call: <span>+20 1018360530</span> to make a reservation.
+                    </p>
                 </div>
-                <div className="form_control">
-                    <label htmlFor="time">time</label>
-                    <input
-                        type="text" 
-                        id="time"
-                        name="time"
-                        {...formik.getFieldProps('time')}
-                        placeholder="00:00"
-                        />
-                    {
-                        formik.touched.time && formik.errors.time ? 
-                        (
-                            <div className="error">{formik.errors.time}</div>
-                        ) : null
-                    }
-                </div>
-                <div className="form_control">
-                    <label htmlFor="email">email</label>
-                    <input
-                        type="email" 
-                        id="email"
-                        name="email"
-                        {...formik.getFieldProps('email')}
-                        />
-                    {
-                        formik.touched.email && formik.errors.email ? 
-                        (
-                            <div className="error">{formik.errors.email}</div>
-                        ) : null
-                    }
-                </div>
-                <div className="form_control">
-                    <label htmlFor="quests">num of quests</label>
-                    <input
-                        type="number" 
-                        id="quests"
-                        name="quests"
-                        {...formik.getFieldProps('quests')}
-                        />
-                    {
-                        formik.touched.quests && formik.errors.quests ? 
-                        (
-                            <div className="error">{formik.errors.quests}</div>
-                        ) : null
-                    }
-                </div>
-                <div className="form_control">
-                    <label htmlFor="phone">phone</label>
-                    <input
-                        type="text" 
-                        id="phone"
-                        name="phone"
-                        {...formik.getFieldProps('phone')}
-                        placeholder="01018******"
-                        />
-                    {
-                        formik.touched.phone && formik.errors.phone ? 
-                        (
-                            <div className="error">{formik.errors.phone}</div>
-                        ) : null
-                    }
-                </div>
-                <button type="submit">Make Reservation</button>
-            </form>
-            <div className="footer">
-                <p>
-                    You can also call: <span>+20 1018360530</span> to make a reservation.
-                </p>
-            </div>
-        </section>
+            </section>
+        </Formik>
     );
 }
  
