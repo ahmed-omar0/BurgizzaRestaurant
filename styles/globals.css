@@ -1,6 +1,25 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Goblin+One&family=Oswald:wght@200;300;400;500;600&family=Reggae+One&display=swap');
+/* Scroll Bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 128, 0, 0.89);
+  transition: .3s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
+}
 /*Global Rules*/
 html,
 body {
@@ -213,7 +232,7 @@ nav .collapse-menu svg{
   display: none;
 }
 nav .cart {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   transform: translateX(700px);
@@ -224,6 +243,7 @@ nav .cart {
   justify-content: center;
   align-content: flex-start;
   flex-wrap: wrap;
+  z-index: 20;
 }
 nav .cart.open {
   transform: translateX(0px);
@@ -367,6 +387,7 @@ nav .menu-icons span{
   }
   nav .collapse-menu.open{
     width: 100vw;
+    position: fixed;
   }
   nav .collapse-menu svg{
     font-size: 30px;
@@ -431,6 +452,7 @@ nav .menu-icons span{
   }
   nav .collapse-menu.open{
     width: 100vw;
+    position: fixed;
   }
   nav .collapse-menu svg{
     font-size: 30px;
